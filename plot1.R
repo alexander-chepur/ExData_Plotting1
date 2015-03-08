@@ -27,7 +27,9 @@ data$Date_Time = strptime(paste(data$Date, data$Time),"%d/%m/%Y %H:%M:%S")
 png("plot1.png", height = 480, width = 480)
 
 # Construct new histogram
-hist(data$Global_active_power, col='red', xlab = 'Global Active Power (kilowatts)', main = 'Global Active Power')
+hist(data$Global_active_power, col='red', 
+     xlab = 'Global Active Power (kilowatts)', 
+     main = 'Global Active Power')
 
 # Close device
 dev.off()
