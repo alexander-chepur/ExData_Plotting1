@@ -1,5 +1,5 @@
 #######################
-## This script constructs Plot 2
+## This script constructs Plot 3
 ##
 
 # Read all the file
@@ -23,13 +23,19 @@ rm(data_all)
 # Create new column with date and time comverted to R format
 data$Date_Time = strptime(paste(data$Date, data$Time),"%d/%m/%Y %H:%M:%S")
 
-# Open PNG device to write to plot2.png
-png("plot2.png", height = 480, width = 480)
+# Open PNG device to write to plot3.png
+png("plot3.png", height = 480, width = 480)
 
 # Construct new plot
-plot(data$Date_Time, data$Global_active_power, pch=NA, xlab="", 
-     ylab="Global Active Power (kilowatts)")
-lines(data$Date_Time, data$Global_active_power)
+plot(data$Date_Time, data$Sub_metering_1, pch=NA, xlab="", 
+     ylab="Energy sub metering")
+lines(data$Date_Time, data$Sub_metering_1)
+lines(data$Date_Time, data$Sub_metering_2, col='red')
+lines(data$Date_Time, data$Sub_metering_3, col='blue')
+legend('topright', 
+       c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), 
+       lty = c(1,1,1), 
+       col = c('black', 'red', 'blue'))
 
 # Close device
 dev.off()
